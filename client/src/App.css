@@ -1,0 +1,36 @@
+
+.app{
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column; 
+    min-height: 100vh;
+}
+
+main{
+    flex: 1;
+}
+
+header{
+    margin-bottom: 3em;
+}
+
+footer{
+    padding: 1em 0;
+    color: grey;
+    text-align: center;
+    font-size: 0.8em;
+}
+
+table{
+    text-align: left;
+}
+
+thead{
+    font-size: 2em;
+}
+
+th, td{
+    padding: 0.5em;
+}
+
