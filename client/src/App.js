@@ -2,33 +2,45 @@ import React from 'react'
 
 import DepartementRow from './components/DepartementRow'
 import './App.css';
+import departementsRaw from './departements.json'
 
 function App() {
 
   const [rows, setRows] = React.useState([])
 
-  
-  fetch('api/dataset_count')
-    .then((response) => response.json())
-    .then((data) => {
-      if(data.error != null){
-        return(
-          <tr>
-            <th>data.author</th>
-            <td>Fehler beim Laden der Daten</td>
-          </tr>
-        )
-      }
-      return (
-        <DepartementRow
-          key={data.author}
-          name={data.author}
-          count={data.count}
-        />
-      )  
-    }).then( (row) => {
-      setRows([row])
+  const departements = departementsRaw.departments
+
+  React.useEffect(() => {
+    const rows = departements.map( (departement) => {
+      return fetch(`api/dataset_count/${departement.name}`)
+        .then((response) => response.json())
+        .then((data) => {
+          if(data.error != null){
+            return(
+              <tr>
+                <th>departement.name</th>
+                <td>Fehler beim Laden der Daten</td>
+              </tr>
+            )
+          }
+          return (
+            <DepartementRow
+              key={departement.name}
+              name={departement.name}
+              count={data.count}
+            />
+          )  
+        })
     })
+
+    Promise.all(rows)
+      .then( (rowValues) => {
+        rowValues.sort( (a, b) => b.props.count - a.props.count)
+        setRows(rowValues)
+      })
+
+  }, []) //call only on mount
+  
 
   return (
     <div className="app">
@@ -40,7 +52,7 @@ function App() {
           <table>
             <thead>
               <tr>
-                <th>Name</th>
+                <th>Ministerium</th>
                 <th>Anzahl Datensätze</th>
               </tr>
             </thead>
