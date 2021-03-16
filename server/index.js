@@ -36,4 +36,12 @@ app.get('/api/dataset_count/:author', (req, res) => {
 });
 
 
+// serve static files from node server
+app.use(express.static(path.join(__dirname, '../client/build')));
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+});
+
+
 app.listen(PORT, () => {console.log(`App listening on Port ${PORT}`)});
