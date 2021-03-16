@@ -10,9 +10,21 @@ function App() {
 
   const departements = departementsRaw.departments
 
+  const stringifyDepartementAuthors = (departement) => {
+    let authors = []
+    authors.push(...[departement.name, departement.abbr])
+    departement.subordinates?.forEach( subordinate => {
+      authors.push(...[subordinate.name, subordinate.abbr])
+    })
+    const authorsString = authors.join('" OR "') // we need quotations for solr query
+    return ['("', authorsString, '")'].join('')
+  }
+
+
   React.useEffect(() => {
     const rows = departements.map( (departement) => {
-      return fetch(`api/dataset_count/${departement.name}`)
+      const authorFull = stringifyDepartementAuthors(departement)
+      return fetch(`api/dataset_count/${authorFull}`)
         .then((response) => response.json())
         .then((data) => {
           if(data.error != null){
@@ -38,7 +50,7 @@ function App() {
         rowValues.sort( (a, b) => b.props.count - a.props.count)
         setRows(rowValues)
       })
-
+      //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []) //call only on mount
   
 
