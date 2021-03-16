@@ -1,15 +1,33 @@
 import React from 'react'
+
+import DepartementRow from './components/DepartementRow'
 import './App.css';
 
 function App() {
 
-
   const [rows, setRows] = React.useState([])
 
+  
   fetch('api/dataset_count')
     .then((response) => response.json())
     .then((data) => {
-      console.log(data)
+      if(data.error != null){
+        return(
+          <tr>
+            <th>data.author</th>
+            <td>Fehler beim Laden der Daten</td>
+          </tr>
+        )
+      }
+      return (
+        <DepartementRow
+          key={data.author}
+          name={data.author}
+          count={data.count}
+        />
+      )  
+    }).then( (row) => {
+      setRows([row])
     })
 
   return (
@@ -27,11 +45,7 @@ function App() {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th>Bundesministerium der Finanzen</th>
-                <td>Bundesministerium der Finanzen</td>
-              </tr>
-              {/* Data from API will go here*/ }
+              {rows}
             </tbody>
           </table>
         </section>
