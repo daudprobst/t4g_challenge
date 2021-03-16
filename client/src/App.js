@@ -2,6 +2,14 @@ import React from 'react'
 import './App.css';
 
 function App() {
+
+
+  const [rows, setRows] = React.useState([])
+
+  fetch('api/hello').then( (response) => {
+    console.log(response.json())
+  })
+
   return (
     <div className="app">
       <header>
@@ -17,14 +25,6 @@ function App() {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th>Testministerium</th>
-                <td>5</td>
-              </tr>
-              <tr>
-                <th>Testministerium</th>
-                <td>5</td>
-              </tr>
               <tr>
                 <th>Testministerium</th>
                 <td>5</td>
