@@ -18,7 +18,6 @@ app.get('/api/dataset_count/:author', (req, res) => {
     fetch(url)
         .then((response) => response.json())
         .then((data) => {
-            console.log(data);
             res.status(200).json({
                 "author": author,
                 "count": data.result.count,
