@@ -6,9 +6,11 @@ function App() {
 
   const [rows, setRows] = React.useState([])
 
-  fetch('api/hello').then( (response) => {
-    console.log(response.json())
-  })
+  fetch('api/dataset_count')
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data)
+    })
 
   return (
     <div className="app">
@@ -26,8 +28,8 @@ function App() {
             </thead>
             <tbody>
               <tr>
-                <th>Testministerium</th>
-                <td>5</td>
+                <th>Bundesministerium der Finanzen</th>
+                <td>Bundesministerium der Finanzen</td>
               </tr>
               {/* Data from API will go here*/ }
             </tbody>
