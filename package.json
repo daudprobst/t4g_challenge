@@ -6,12 +6,19 @@
   "scripts": {
     "client": "cd client && npm start",
     "server": "cd server && node index.js",
-    "offline": "npm run client & npm run server"
+    "install_all": "npm install && cd client && npm install",
+    "build:client": "cd client && npm run build",
+    "offline": "npm run client & npm run server",
+    "start": "npm run server",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
     "node-fetch": "^2.6.1"
+  },
+  "engines": {
+    "node": "12.x"
   }
 }

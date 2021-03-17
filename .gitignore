@@ -22,3 +22,6 @@ client/yarn-error.log*
 
 # Backend
 node_modules
+npm-debug.log
+.DS_Store
+/*.env

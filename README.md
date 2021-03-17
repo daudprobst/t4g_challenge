@@ -8,6 +8,9 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 In the project directory, you can run:
 
+### `npm run install_all`
+Installs all dependencies for client and server.
+
 ### `npm run offline`
 
 Runs the app locally. Starts both client and server. \
@@ -18,6 +21,10 @@ For development you can separately start server and client to see the outputs.
 
 Will start only the client.\
 If you only run the client without the server, the data will not get fetched properly.
+
+### `npm run build:client`
+
+Builds a production version of the client for deployment.
 
 ### `npm run server`
 
