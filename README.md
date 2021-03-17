@@ -1,3 +1,10 @@
+# Live Version
+
+There is a [live version of this app](https://fathomless-everglades-14095.herokuapp.com/) deployed on Heroku.\
+**Important**: Since this is a free deploy on Heroku, the server might only start once you click on the link.\
+That means that some delay (~30s) before the app loads for the first time must be expected. This is unrelated to performance of the app itself.
+
+
 # Create React App
 
 The frontend for this project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
