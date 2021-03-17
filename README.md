@@ -5,13 +5,7 @@ There is a [live version of this app](https://fathomless-everglades-14095.heroku
 That means that some delay (~30s) before the app loads for the first time must be expected. This is unrelated to performance of the app itself.
 
 
-# Create React App
-
-The frontend for this project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-
-## Available Scripts
+# Available Scripts
 
 In the project directory, you can run:
 
@@ -36,3 +30,9 @@ Builds a production version of the client for deployment.
 ### `npm run server`
 
 Will start only the server.
+
+
+# Create React App
+
+The frontend for this project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
